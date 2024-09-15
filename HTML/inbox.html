@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox - Blood Donation App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF0F5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+        .inbox-list {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+            max-width: 400px;
+        }
+        .inbox-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .inbox-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        h3 {
+            margin: 0;
+            color: #333;
+        }
+        .back-arrow {
+            font-size: 24px;
+            color: #333;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .search-container {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .search-container input {
+            flex-grow: 1;
+            margin-right: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .search-container button {
+            padding: 10px 20px;
+            background-color: #FF1493;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-arrow">&#8592; Back</a>
+    <div class="search-container">
+        <input type="text" placeholder="Search">
+        <button>Search</button>
+    </div>
+    <ul id="inbox-list" class="inbox-list"></ul>
+
+    <script>
+        function showInbox() {
+            const inboxList = document.getElementById('inbox-list');
+
+            inboxList.innerHTML = `
+                <li class="inbox-item" onclick="showChat()">
+                    <img src="https://via.placeholder.com/40x40.png?text=ML" alt="Michel Lucas">
+                    <div>
+                        <h3>Michel Lucas</h3>
+                        <p>Lorem ipsum is simply...</p>
+                    </div>
+                </li>
+                <li class="inbox-item" onclick="showChat()">
+                    <img src="https://via.placeholder.com/40x40.png?text=LE" alt="Liam Elijah">
+                    <div>
+                        <h3>Liam Elijah</h3>
+                        <p>Lorem ipsum is simply...</p>
+                    </div>
+                </li>
+                <li class="inbox-item" onclick="showChat()">
+                    <img src="https://via.placeholder.com/40x40.png?text=DH" alt="Daniel Henry">
+                    <div>
+                        <h3>Daniel Henry</h3>
+                        <p>Lorem ipsum is simply...</p>
+                    </div>
+                </li>
+                <li class="inbox-item" onclick="showChat()">
+                    <img src="https://via.placeholder.com/40x40.png?text=BJ" alt="Benjamin Jack">
+                    <div>
+                        <h3>Benjamin Jack</h3>
+                        <p>Lorem ipsum is simply...</p>
+                    </div>
+                </li>
+                <li class="inbox-item" onclick="showChat()">
+                    <img src="https://via.placeholder.com/40x40.png?text=AN" alt="Archer Noah">
+                    <div>
+                        <h3>Archer Noah</h3>
+                        <p>Lorem ipsum is simply...</p>
+                    </div>
+                </li>
+                <li class="inbox-item" onclick="showChat()">
+                    <img src="https://via.placeholder.com/40x40.png?text=OJ" alt="Oliver James">
+                    <div>
+                        <h3>Oliver James</h3>
+                        <p>Lorem ipsum is simply...</p>
+                    </div>
+                </li>
+                <li class="inbox-item" onclick="showChat()">
+                    <img src="https://via.placeholder.com/40x40.png?text=LG" alt="Luke Gariel">
+                    <div>
+                        <h3>Luke Gariel</h3>
+                        <p>Lorem ipsum is simply...</p>
+                    </div>
+                </li>
+                <li class="inbox-item" onclick="showChat()">
+                    <img src="https://via.placeholder.com/40x40.png?text=TC" alt="Thomas Carter">
+                    <div>
+                        <h3>Thomas Carter</h3>
+                        <p>Lorem ipsum is simply...</p>
+                    </div>
+                </li>
+            `;
+        }
+
+        // Call showInbox to initialize the inbox when the page loads
+        document.addEventListener('DOMContentLoaded', showInbox);
+    </script>
+</body>
+</html>

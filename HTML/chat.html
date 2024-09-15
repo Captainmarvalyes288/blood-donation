@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - Blood Donation App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF0F5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+        .chat-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+            overflow: hidden;
+        }
+        .messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .message {
+            padding: 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        .message.sent {
+            align-self: flex-end;
+            background-color: #FF1493;
+            color: white;
+        }
+        .message.received {
+            align-self: flex-start;
+            background-color: #f1f0f0;
+        }
+        .chat-input {
+            display: flex;
+        }
+        .chat-input input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #FF1493;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-arrow {
+            font-size: 24px;
+            color: #333;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-arrow" onclick="showInbox()">&larr; Back</a>
+    <div id="chat-container" class="chat-container"></div>
+
+    <script>
+        function showChat() {
+            const chatContainer = document.getElementById('chat-container');
+
+            chatContainer.innerHTML = `
+                <h2>Benjamin Jack</h2>
+                <div class="messages">
+                    <div class="message sent">Lorem ipsum is simply dum printing and</div>
+                    <div class="message received">Lorem ipsum is simply dum</div>
+                    <div class="message sent">Lorem ipsum is simply dum printing and</div>
+                    <div class="message sent">[Audio message placeholder]</div>
+                    <div class="message received">[Audio message placeholder]</div>
+                    <div class="message sent">[Audio message placeholder]</div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" placeholder="Type a Message">
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+            `;
+        }
+
+        function sendMessage() {
+            const input = document.querySelector('.chat-input input');
+            const messageText = input.value.trim();
+            if (messageText) {
+                const messageContainer = document.querySelector('.messages');
+                const newMessage = document.createElement('div');
+                newMessage.className = 'message sent';
+                newMessage.textContent = messageText;
+                messageContainer.appendChild(newMessage);
+                input.value = '';
+                messageContainer.scrollTop = messageContainer.scrollHeight;
+            }
+        }
+
+        // Call showChat to initialize the chat when the page loads
+        document.addEventListener('DOMContentLoaded', showChat);
+    </script>
+</body>
+</html>

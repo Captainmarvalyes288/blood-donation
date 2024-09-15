@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Center - Blood Donation App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF0F5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+        .blood-center {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .blood-center img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .blood-center-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .blood-center-rating {
+            color: gold;
+        }
+        .review {
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .review-author {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .review-author img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #FF1493;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .back-arrow {
+            font-size: 24px;
+            color: #333;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-arrow">&#8592; Back</a>
+    <div id="blood-center" class="blood-center"></div>
+
+    <script>
+        function showBloodCenter() {
+            const bloodCenterDiv = document.getElementById('blood-center');
+
+            bloodCenterDiv.innerHTML = `
+                <a href="#" class="back-arrow" onclick="showBloodBanks()">&larr;</a>
+                <div class="blood-center">
+                    <img src="https://via.placeholder.com/300x150.png?text=New+York+Blood+Center" alt="New York Blood Center">
+                    <h2>New York Blood Center</h2>
+                    <div class="blood-center-info">
+                        <span>New York</span>
+                        <span class="blood-center-rating">★ 3.5</span>
+                    </div>
+                    <p>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
+                    <div>
+                        <button onclick="alert('Calling...')">Call</button>
+                        <button onclick="alert('Getting directions...')">Get Directions</button>
+                    </div>
+                </div>
+                <div class="review">
+                    <h3>Review (256)</h3>
+                    <button onclick="alert('Write a review')">Write A Review</button>
+                    <div class="review-author">
+                        <img src="https://via.placeholder.com/30x30.png?text=DM" alt="David Martin">
+                        <span>David Martin</span>
+                        <span class="blood-center-rating">★ 4.7</span>
+                    </div>
+                    <p>Model text goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            `;
+        }
+
+        // Call showBloodCenter to initialize the blood center details when the page loads
+        document.addEventListener('DOMContentLoaded', showBloodCenter);
+    </script>
+</body>
+</html>

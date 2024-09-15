@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Blood Donation App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF0F5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+        }
+        .profile-header {
+            margin: 20px;
+        }
+        .profile-header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .profile-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            width: 100%;
+            max-width: 400px;
+        }
+        .profile-stats div {
+            text-align: center;
+        }
+        .profile-menu {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+            max-width: 400px;
+        }
+        .profile-menu li {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+            cursor: pointer;
+        }
+        .profile-menu li:hover {
+            background-color: #f0f0f0;
+        }
+        .profile-menu label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .profile-menu input {
+            margin-left: 10px;
+        }
+        .back-arrow {
+            font-size: 24px;
+            color: #333;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .nav-bar {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            background-color: #f9f9f9;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .nav-item {
+            text-decoration: none;
+            color: #333;
+            padding: 10px;
+            flex: 1;
+            text-align: center;
+        }
+        .nav-item.active {
+            color: #FF1493;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-arrow">&#8592; Back</a>
+    <div id="profile-container"></div>
+
+    <script>
+        // Function to create the navigation bar
+        function createNavBar(active) {
+            return `
+                <div class="nav-bar">
+                    <a href="index.html" class="nav-item ${active === 'home' ? 'active' : ''}">Home</a>
+                    <a href="donate-list.html" class="nav-item ${active === 'donate' ? 'active' : ''}">Donate</a>
+                    <a href="chat.html" class="nav-item ${active === 'chat' ? 'active' : ''}">Chat</a>
+                    <a href="profile.html" class="nav-item ${active === 'profile' ? 'active' : ''}">Profile</a>
+                    <a href="notifications.html" class="nav-item ${active === 'notifications' ? 'active' : ''}">Notifications</a>
+                </div>
+            `;
+        }
+
+        // Function to display the profile
+        function showProfile() {
+            const app = document.getElementById('profile-container');
+            app.innerHTML = `
+                <div class="profile-header">
+                    <img src="https://via.placeholder.com/100x100.png?text=DJ" alt="David John">
+                    <h2>David John</h2>
+                    <p>Last Donation: October, 2023</p>
+                </div>
+                <div class="profile-stats">
+                    <div>
+                        <h3>05</h3>
+                        <p>Donations</p>
+                    </div>
+                    <div>
+                        <h3>03</h3>
+                        <p>Requests</p>
+                    </div>
+                    <div>
+                        <h3>06</h3>
+                        <p>Responses</p>
+                    </div>
+                </div>
+                <ul class="profile-menu">
+                    <li>
+                        <label>I Want To Donate</label>
+                        <input type="checkbox" checked>
+                    </li>
+                    <li onclick="alert('Edit Profile')">Edit Profile &gt;</li>
+                    <li onclick="showPostRequest()">Blood Request &gt;</li>
+                    <li onclick="alert('Settings')">Settings &gt;</li>
+                    <li onclick="alert('Invite Friends')">Invite Friends &gt;</li>
+                    <li onclick="alert('Privacy Policy')">Privacy Policy &gt;</li>
+                    <li onclick="alert('Rate Us')">Rate Us &gt;</li>
+                    <li onclick="alert('About Us')">About Us &gt;</li>
+                    <li onclick="showSplashScreen()">Sign Out</li>
+                </ul>
+                ${createNavBar('profile')}
+            `;
+        }
+
+        // Call the showProfile function when the page loads
+        document.addEventListener('DOMContentLoaded', showProfile);
+    </script>
+</body>
+</html>

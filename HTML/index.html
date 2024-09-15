@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation App</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add styles for splash screen and other components */
+        .splash-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #FFF0F5;
+            text-align: center;
+        }
+        .splash-screen h1 {
+            font-size: 3em;
+            color: #FF1493;
+        }
+        .splash-screen p {
+            font-size: 1.2em;
+            color: #333;
+        }
+        .splash-screen button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #FF1493;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .splash-screen button:hover {
+            background-color: #e03b7d;
+        }
+        .splash-screen a {
+            color: #FF1493;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div class="splash-screen" id="app">
+        <!-- Content will be injected here by JavaScript -->
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="index.html" class="nav-item">Home</a></li>
+            <li><a href="donate-list.html" class="nav-item">Donate</a></li>
+            <li><a href="chat.html" class="nav-item">Chat</a></li>
+            <li><a href="profile.html" class="nav-item">Profile</a></li>
+        </ul>
+    </nav>
+
+    <!-- Content Links Section -->
+    <section class="content-links">
+        <ul>
+            <li><a href="blood-center.html">See Blood Centers</a></li>
+            <li><a href="review.html">See Reviews</a></li>
+            <li><a href="blood-bank.html">See Blood Banks</a></li>
+            <li><a href="donate-list.html">See Donations</a></li>
+            <li><a href="chat.html">Open Chat</a></li>
+            <li><a href="inbox.html">Open Inbox</a></li>
+            <li><a href="profile.html">Open Profile</a></li>
+            <li><a href="profile-stat.html">Open Profile Stats</a></li>
+            <li><a href="profile-header.html">Open Profile Header</a></li>
+        </ul>
+    </section>
+
+    <script src="index.js"></script>
+</body>
+</html>

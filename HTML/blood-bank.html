@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Banks - Blood Donation App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF0F5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+        .search-container {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .search-container input[type="text"] {
+            flex-grow: 1;
+            margin-right: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .search-container button {
+            padding: 10px 20px;
+            background-color: #FF1493;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .blood-bank-list {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+            max-width: 400px;
+        }
+        .blood-bank-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .blood-bank-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        h3 {
+            margin: 0;
+            color: #333;
+        }
+        .blood-center-rating {
+            font-size: 14px;
+            color: #FF1493;
+        }
+        .back-arrow {
+            font-size: 24px;
+            color: #333;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-arrow">&#8592; Back</a>
+    <div id="blood-banks-container"></div>
+
+    <script>
+        // Function to create the navigation bar
+        function createNavBar(active) {
+            return `
+                <div class="nav-bar">
+                    <a href="index.html" class="nav-item ${active === 'home' ? 'active' : ''}">Home</a>
+                    <a href="donate-list.html" class="nav-item ${active === 'donate' ? 'active' : ''}">Donate</a>
+                    <a href="chat.html" class="nav-item ${active === 'chat' ? 'active' : ''}">Chat</a>
+                    <a href="profile.html" class="nav-item ${active === 'profile' ? 'active' : ''}">Profile</a>
+                    <a href="notifications.html" class="nav-item ${active === 'notifications' ? 'active' : ''}">Notifications</a>
+                </div>
+            `;
+        }
+
+        // Function to display blood banks
+        function showBloodBanks() {
+            const app = document.getElementById('blood-banks-container');
+            app.innerHTML = `
+                <h2>Blood Bank</h2>
+                <div class="search-container">
+                    <input type="text" placeholder="Search">
+                    <button>Search</button>
+                </div>
+                <ul class="blood-bank-list">
+                    <li class="blood-bank-item" onclick="showBloodCenter()">
+                        <img src="https://via.placeholder.com/50x50.png?text=ARC" alt="American Red Cross">
+                        <div>
+                            <h3>American Red Cross</h3>
+                            <p>Washington, D.C.</p>
+                        </div>
+                        <span class="blood-center-rating">★ 4.8</span>
+                    </li>
+                    <li class="blood-bank-item" onclick="showBloodCenter()">
+                        <img src="https://via.placeholder.com/50x50.png?text=Vitalant" alt="Vitalant">
+                        <div>
+                            <h3>Vitalant</h3>
+                            <p>Scottsdale, Arizona</p>
+                        </div>
+                        <span class="blood-center-rating">★ 4.2</span>
+                    </li>
+                    <li class="blood-bank-item" onclick="showBloodCenter()">
+                        <img src="https://via.placeholder.com/50x50.png?text=NYBC" alt="New York Blood Center">
+                        <div>
+                            <h3>New York Blood Center</h3>
+                            <p>New York, NY</p>
+                        </div>
+                        <span class="blood-center-rating">★ 3.5</span>
+                    </li>
+                    <li class="blood-bank-item" onclick="showBloodCenter()">
+                        <img src="https://via.placeholder.com/50x50.png?text=CB" alt="Center Bloodcare">
+                        <div>
+                            <h3>Center Bloodcare</h3>
+                            <p>Bedford, Texas</p>
+                        </div>
+                        <span class="blood-center-rating">★ 4.1</span>
+                    </li>
+                    <li class="blood-bank-item" onclick="showBloodCenter()">
+                        <img src="https://via.placeholder.com/50x50.png?text=MBC" alt="Memorial Blood Centers">
+                        <div>
+                            <h3>Memorial Blood Centers</h3>
+                            <p>St. Paul, Minnesota</p>
+                        </div>
+                        <span class="blood-center-rating">★ 4.5</span>
+                    </li>
+                </ul>
+                ${createNavBar('blood-banks')}
+            `;
+        }
+
+        // Call the showBloodBanks function when the page loads
+        document.addEventListener('DOMContentLoaded', showBloodBanks);
+    </script>
+</body>
+</html>

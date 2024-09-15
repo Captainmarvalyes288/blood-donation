@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Stats - Blood Donation App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF0F5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+        }
+        .profile-stats {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .profile-stats div {
+            flex: 1;
+            padding: 10px;
+        }
+        h3 {
+            margin: 5px 0;
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+            color: #666;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .back-arrow {
+            font-size: 24px;
+            color: #333;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-arrow">&#8592; Back</a>
+    <h2>Your Profile Stats</h2>
+    <div class="profile-stats">
+        <div>
+            <h3>Donations</h3>
+            <p id="donations">120</p>
+        </div>
+        <div>
+            <h3>Badges</h3>
+            <p id="badges">30</p>
+        </div>
+        <div>
+            <h3>Referrals</h3>
+            <p id="referrals">10</p>
+        </div>
+    </div>
+
+    <script>
+        // Simulate fetching data from a server
+        function fetchProfileStats() {
+            // Simulated data
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve({
+                        donations: 170,
+                        badges: 45,
+                        referrals: 35,
+                    });
+                }, 2000); // Simulate a 1-second delay
+            });
+        }
+
+        // Function to update the profile stats on the page
+        function updateProfileStats(stats) {
+            document.getElementById('donations').textContent = stats.donations;
+            document.getElementById('badges').textContent = stats.badges;
+            document.getElementById('referrals').textContent = stats.referrals;
+        }
+
+        // Initialize profile stats
+        async function initProfileStats() {
+            const stats = await fetchProfileStats();
+            updateProfileStats(stats);
+        }
+
+        // Call the initialization function when the page loads
+        initProfileStats();
+    </script>
+</body>
+</html>

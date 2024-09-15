@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation List - Blood Donation App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF0F5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+        .search-container {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .search-container button {
+            flex-grow: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .search-container button.active {
+            background-color: #FF1493;
+            color: white;
+        }
+        .search-container button.inactive {
+            background-color: #f1f0f0;
+            color: black;
+        }
+        .donate-list {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+            max-width: 400px;
+        }
+        .donate-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+        .donate-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        h4 {
+            margin: 0;
+            color: #333;
+        }
+        p {
+            color: #666;
+            margin: 5px 0;
+        }
+        .blood-type {
+            background-color: #FF1493;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-left: auto;
+        }
+        .back-arrow {
+            font-size: 24px;
+            color: #333;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-arrow">&#8592; Back</a>
+    <div id="donate-container"></div>
+
+    <script>
+        function createNavBar(active) {
+            return `
+                <div class="nav-bar">
+                    <a href="index.html" class="nav-item ${active === 'home' ? 'active' : ''}">Home</a>
+                    <a href="donate-list.html" class="nav-item ${active === 'donate' ? 'active' : ''}">Donate</a>
+                    <a href="chat.html" class="nav-item ${active === 'chat' ? 'active' : ''}">Chat</a>
+                    <a href="profile.html" class="nav-item ${active === 'profile' ? 'active' : ''}">Profile</a>
+                    <a href="notifications.html" class="nav-item ${active === 'notifications' ? 'active' : ''}">Notifications</a>
+                </div>
+            `;
+        }
+
+        function showDonate(filter = 'all') {
+            const app = document.getElementById('donate-container');
+            const items = {
+                all: [
+                    { name: 'Oliver James', description: 'Lorem ipsum is simply dummy text of the printing and typesetting industry.', time: '7 Min Ago', bloodType: 'B', image: 'https://via.placeholder.com/40x40.png?text=OJ' },
+                    { name: 'Benjamin Jack', description: 'Lorem ipsum is simply dummy text of the printing and typesetting industry.', time: '26 Min Ago', bloodType: 'A', image: 'https://via.placeholder.com/40x40.png?text=BJ' },
+                    { name: 'Thomas Carter', description: 'Lorem ipsum is simply dummy text of the printing and typesetting industry.', time: '1 Hour Ago', bloodType: 'O+', image: 'https://via.placeholder.com/40x40.png?text=TC' }
+                ],
+                recent: [
+                    { name: 'Thomas Carter', description: 'Lorem ipsum is simply dummy text of the printing and typesetting industry.', time: '1 Hour Ago', bloodType: 'O+', image: 'https://via.placeholder.com/40x40.png?text=TC' },
+                    { name: 'Benjamin Jack', description: 'Lorem ipsum is simply dummy text of the printing and typesetting industry.', time: '26 Min Ago', bloodType: 'A', image: 'https://via.placeholder.com/40x40.png?text=BJ' }
+                ],
+                urgent: [
+                    { name: 'Oliver James', description: 'Lorem ipsum is simply dummy text of the printing and typesetting industry.', time: '7 Min Ago', bloodType: 'B', image: 'https://via.placeholder.com/40x40.png?text=OJ' }
+                ]
+            };
+
+            let html = `
+                <h2>Donate</h2>
+                <div class="search-container">
+                    <button onclick="showDonate('all')" class="${filter === 'all' ? 'active' : 'inactive'}">All</button>
+                    <button onclick="showDonate('recent')" class="${filter === 'recent' ? 'active' : 'inactive'}">Recent</button>
+                    <button onclick="showDonate('urgent')" class="${filter === 'urgent' ? 'active' : 'inactive'}">Urgent</button>
+                </div>
+                <ul class="donate-list">
+            `;
+
+            items[filter].forEach(item => {
+                html += `
+                    <li class="donate-item">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div>
+                            <h4>${item.name}</h4>
+                            <p>${item.description}</p>
+                            <small>${item.time}</small>
+                        </div>
+                        <div class="blood-type">${item.bloodType}</div>
+                    </li>
+                `;
+            });
+
+            html += `
+                </ul>
+                ${createNavBar('donate')}
+            `;
+
+            app.innerHTML = html;
+        }
+
+        // Call showDonate to display all items by default when the page loads
+        document.addEventListener('DOMContentLoaded', () => showDonate('all'));
+    </script>
+</body>
+</html>

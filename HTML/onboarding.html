@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onboarding - Blood Donation App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #fff0f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .onboarding-screen {
+        padding: 20px;
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .onboarding-screen img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        color: #333;
+        margin: 10px 0;
+      }
+
+      p {
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #ff1493;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Container for the onboarding screen content -->
+    <div id="onboarding-container"></div>
+
+    <script>
+      // Function to dynamically create the onboarding screen
+      function createOnboardingScreen(imageSrc, heading, description, buttonText, buttonLink) {
+        return `
+          <div class="onboarding-screen">
+            <img src="${imageSrc}" alt="Onboarding Image">
+            <h2>${heading}</h2>
+            <p>${description}</p>
+            <button onclick="window.location.href='${buttonLink}'">${buttonText}</button>
+          </div>
+        `;
+      }
+
+      // Call the function to generate and display the onboarding screen
+      document.getElementById("onboarding-container").innerHTML = createOnboardingScreen(
+        "onboarding-image.jpg", // Image source
+        "Join the Movement", // Heading text
+        "Become a donor and save lives today.", // Description
+        "Get Started", // Button text
+        "index.html" // Button link
+      );
+    </script>
+  </body>
+</html>

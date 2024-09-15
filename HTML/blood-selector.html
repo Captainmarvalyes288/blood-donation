@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post A Request - Blood Donation App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF0F5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+        }
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="tel"],
+        .form-container select,
+        .form-container input[type="date"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .blood-group-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .blood-group-selector button {
+            flex: 1 0 20%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            color: #333;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .blood-group-selector button.selected {
+            background-color: #FF1493;
+            color: white;
+        }
+        .slider-container {
+            margin-bottom: 15px;
+        }
+        .slider-container p {
+            margin: 0;
+        }
+        button.submit-btn {
+            padding: 10px 20px;
+            background-color: #FF1493;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-arrow {
+            font-size: 24px;
+            color: #333;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-arrow">&#8592; Back</a>
+    <div id="post-request" class="form-container"></div>
+
+    <div class="slider-container"></div>
+        <input type="range" min="1" max="100" value="50" class="slider">
+    </div>
+    
+    <script>
+
+        function selectBloodGroup(button) {
+            const buttons = document.querySelectorAll('.blood-group-selector button');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
+        }
+        
+        function submitRequest() {
+            alert('Request Submitted!');
+        }
+
+        function showPostRequest() {
+            const postRequestDiv = document.getElementById('post-request');
+
+            postRequestDiv.innerHTML = `
+                <h2>Post A Request</h2>
+                <form>
+                    <label for="patientName">Select Patient Name</label>
+                    <input type="text" id="patientName" placeholder="Patient Name">
+
+                    <label>Select Blood Group</label>
+                    <div class="blood-group-selector">
+                        <button type="button" onclick="selectBloodGroup(this)">A+</button>
+                        <button type="button" onclick="selectBloodGroup(this)">A-</button>
+                        <button type="button" onclick="selectBloodGroup(this)">B+</button>
+                        <button type="button" onclick="selectBloodGroup(this)">B-</button>
+                        <button type="button" onclick="selectBloodGroup(this)">O+</button>
+                        <button type="button" onclick="selectBloodGroup(this)">O-</button>
+                        <button type="button" onclick="selectBloodGroup(this)">AB+</button>
+                        <button type="button" onclick="selectBloodGroup(this)">AB-</button>
+                    </div>
+
+                    <label>Select Blood Unit</label>
+                    <div class="slider-container">
+                        <input type="range" min="1" max="5" value="2" class="slider" id="bloodUnitSlider" oninput="document.getElementById('bloodUnitValue').innerText = this.value">
+                        <p>Blood Units: <span id="bloodUnitValue">2</span></p>
+                    </div>
+
+                    <label for="mobileNumber">Mobile Number</label>
+                    <input type="tel" id="mobileNumber" placeholder="Mobile Number">
+
+                    <label for="location">Select A Location</label>
+                    <select id="location">
+                        <option value="">Select A Location</option>
+                        <option value="hospital1">Hospital 1</option>
+                        <option value="hospital2">Hospital 2</option>
+                    </select>
+
+                    <div style="display: flex; justify-content: space-between;">
+                        <div style="width: 48%;">
+                            <label for="gender">Gender</label>
+                            <select id="gender">
+                                <option value="">Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div style="width: 48%;">
+                            <label for="date">Date</label>
+                            <input type="date" id="date">
+                        </div>
+                    </div>
+
+                    <button type="button" class="submit-btn" onclick="submitRequest()">Send Request</button>
+                </form>
+            `;
+        }
+
+        // Call showPostRequest to initialize the form when the page loads
+        document.addEventListener('DOMContentLoaded', showPostRequest);
+    </script>
+</body>
+</html>
