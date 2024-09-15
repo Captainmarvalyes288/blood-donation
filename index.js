@@ -11,7 +11,7 @@ function showSplashScreen() {
     `;
     setTimeout(() => {
         window.location.href = 'onboarding.html';  // Redirects to onboarding page after 2 seconds
-    }, 10000);
+    }, 2000);
 }
 
 function redirectToOnboarding() {
