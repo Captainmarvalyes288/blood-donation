@@ -1,123 +1,550 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #FFF0F5;
+/* Global Styles */
+* {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    flex-direction: column;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
-.container {
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+}
+
+/* Blood Center Details */
+.blood-center {
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
     background-color: white;
     border-radius: 10px;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-}
-
-/* Headings */
-h2 {
-    margin-top: 0;
-    color: #333;
-}
-
-/* Input Styling */
-input[type="text"],
-input[type="password"],
-input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-/* Button Styling */
-button {
-    padding: 10px 20px;
-    background-color: #FF1493;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    width: 100%;
-}
-
-/* Back Arrow */
-.back-arrow {
-    font-size: 24px;
-    color: #333;
-    text-decoration: none;
-    margin-bottom: 20px;
-    display: inline-block;
-    cursor: pointer;
-}
-
-/* Blood Center Section */
-.blood-center {
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
 }
 
 .blood-center img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
+    width: 13%;
     border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.blood-center h2 {
+    font-size: 24px;
+    color: #e74c3c;
+    margin-bottom: 10px;
 }
 
 .blood-center-info {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    margin-bottom: 20px;
+}
+
+.blood-center-info span {
+    font-size: 18px;
+    color: #333;
 }
 
 .blood-center-rating {
-    color: gold;
+    font-size: 18px;
+    color: #f39c12;
+}
+
+.blood-center p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.blood-center button {
+    padding: 10px 15px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.blood-center button:hover {
+    background-color: #c0392b;
 }
 
 /* Review Section */
 .review {
-    border-top: 1px solid #ddd;
-    padding-top: 10px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.review h3 {
+    font-size: 20px;
+    color: #e74c3c;
+    margin-bottom: 10px;
+}
+
+.review button {
+    padding: 10px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.review button:hover {
+    background-color: #c0392b;
 }
 
 .review-author {
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .review-author img {
-    width: 30px;
-    height: 30px;
     border-radius: 50%;
     margin-right: 10px;
 }
 
-/* Blood Bank List */
-.blood-bank-list {
-    list-style-type: none;
-    padding: 0;
+.review-author span {
+    font-size: 16px;
+    color: #333;
 }
 
-.blood-bank-item {
+.review-author .blood-center-rating {
+    margin-left: auto;
+    font-size: 16px;
+    color: #f39c12;
+}
+
+.review p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Form Container */
+.form-container {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #333;
+}
+
+.form-container input[type="text"],
+.form-container input[type="tel"],
+.form-container input[type="date"],
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.form-container input[type="text"]::placeholder,
+.form-container input[type="tel"]::placeholder {
+    color: #888;
+}
+
+.form-container select {
+    color: #555;
+}
+
+/* Blood Group Selector */
+.blood-group-selector {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.blood-group-selector button {
+    padding: 10px;
+    background-color: #f4f4f4;
+    color: #333;
+    border: 2px solid #e74c3c;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.blood-group-selector button:hover,
+.blood-group-selector button.selected {
+    background-color: #e74c3c;
+    color: white;
+    border-color: #c0392b;
+}
+
+/* Slider Container */
+.slider-container {
+    margin-bottom: 20px;
+}
+
+.slider {
+    width: 100%;
+    height: 10px;
+    background-color: #ddd;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    border-radius: 5px;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Submit Button */
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Chat Container */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80vh;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Chat Header */
+.chat-container h2 {
+    text-align: center;
+    color: #e74c3c;
+    margin-bottom: 10px;
+}
+
+/* Messages Section */
+.messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #f4f4f4;
+    border-radius: 10px;
+    background-color: #fafafa;
+    margin-bottom: 10px;
+}
+
+/* Message Styling */
+.message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+    font-size: 16px;
+}
+
+.message.sent {
+    background-color: #e74c3c;
+    color: white;
+    align-self: flex-end;
+}
+
+.message.received {
+    background-color: #f1f1f1;
+    color: #333;
+    align-self: flex-start;
+}
+
+.messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background-color: #e74c3c;
+    border-radius: 5px;
+}
+
+/* Chat Input Section */
+.chat-input {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
 }
 
-.blood-bank-item img {
-    width: 50px;
-    height: 50px;
+.chat-input input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+#reviews-container {
+    margin: 20px;
+    padding: 10px;
+}
+
+.review {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Light border for separation */
+    margin-bottom: 10px;
+    background-color: #f9f9f9; /* Light background for review items */
+    border-radius: 8px; /* Rounded corners for review items */
+}
+
+.review-author {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.review-author img {
     border-radius: 50%;
+    width: 50px; /* Set a fixed width for reviewer avatar */
+    height: 50px; /* Set a fixed height for reviewer avatar */
+    object-fit: cover; /* Ensure the image covers the area */
     margin-right: 10px;
+}
+
+.review-author h4 {
+    font-size: 1rem; /* Font size for reviewer name */
+    margin: 0;
+}
+
+.review p {
+    font-size: 0.9rem; /* Font size for review text */
+    color: #333; /* Dark color for review text */
+    margin: 0;
+}
+
+.review-form {
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff; /* White background for review form */
+    border-radius: 8px; /* Rounded corners for form */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+.review-form h3 {
+    margin-bottom: 10px;
+    font-size: 1.25rem; /* Font size for form heading */
+}
+
+.review-form input[type="text"],
+.review-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd; /* Border for input fields */
+    border-radius: 4px; /* Rounded corners for input fields */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.review-form textarea {
+    height: 100px; /* Fixed height for textarea */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.review-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #FF1493; /* Background color for button */
+    color: white; /* Text color for button */
+    font-size: 1rem; /* Font size for button text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.review-form button:hover {
+    background-color: #e6007e; /* Darker color on hover */
+}
+
+.chat-input input::placeholder {
+    color: #aaa;
+}
+
+.chat-input button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chat-input button:hover {
+    background-color: #c0392b;
+}
+
+/* Donation List Container */
+#donate-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Donation List Title */
+#donate-container h2 {
+    text-align: center;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+/* Inbox Page Styling */
+.inbox-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.inbox-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #fafafa;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.inbox-item:hover {
+    background-color: #f5f5f5;
+}
+
+.inbox-item img {
+    border-radius: 50%;
+    margin-right: 15px;
+    width: 40px;
+    height: 40px;
+}
+
+.inbox-item h3 {
+    margin: 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.inbox-item p {
+    margin: 5px 0 0;
+    color: #777;
+    font-size: 14px;
+}
+
+/* Search Container Styling */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.search-container input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 35%;
+    font-size: 16px;
+}
+
+.search-container button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    background-color: #e74c3c;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+    background-color: #c0392b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .inbox-list {
+        padding: 10px;
+    }
+
+    .inbox-item {
+        padding: 10px;
+    }
+
+    .search-container input {
+        width: 60%;
+    }
 }
 
 /* Donation List */
@@ -129,230 +556,607 @@ button {
 .donate-item {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
-    background-color: #f9f9f9;
     padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #f1f1f1;
     border-radius: 10px;
+    background-color: #fafafa;
+    transition: background-color 0.3s ease;
+}
+#notifications-container {
+    padding: 20px;
+    background-color: #fff;
+}
+
+/* Notifications List Styles */
+.notification-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notification-item {
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.notification-item h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.notification-item h4 {
+    margin: 10px 0 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.notification-item p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Button Styles for Donate Section */
+.container button {
+    padding: 10px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.container button:hover {
+    opacity: 0.8;
+}
+
+.container button:nth-child(1) {
+    background-color: #FF1493; /* Active Button Color */
+}
+
+.container button:nth-child(2),
+.container button:nth-child(3) {
+    background-color: #f1f0f0;
+    color: black;
+}
+
+/* Styles for Donate List Items */
+.donate-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.donate-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 .donate-item img {
-    width: 40px;
-    height: 40px;
     border-radius: 50%;
     margin-right: 10px;
+}
+
+.donate-item div {
+    flex-grow: 1;
+}
+
+.donate-item h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.donate-item p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.donate-item small {
+    color: #999;
 }
 
 .blood-type {
     background-color: #FF1493;
     color: white;
     padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 12px;
-    margin-left: auto;
-}
-
-/* Chat Section */
-.chat-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 400px;
-    margin-bottom: 20px;
-}
-
-.message {
-    max-width: 80%;
-    margin-bottom: 10px;
-    padding: 10px;
     border-radius: 20px;
+    font-size: 14px;
 }
 
-.message.sent {
-    align-self: flex-end;
-    background-color: #FF1493;
-    color: white;
+.donate-item:hover {
+    background-color: #f8f8f8;
 }
 
-.message.received {
-    align-self: flex-start;
-    background-color: #f1f0f0;
-}
-
-.chat-input {
-    display: flex;
-    margin-top: 20px;
-}
-
-.chat-input input {
-    flex-grow: 1;
-    margin-right: 10px;
-}
-
-/* Inbox Section */
-.inbox-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.inbox-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.inbox-item img {
-    width: 40px;
-    height: 40px;
+.donate-item img {
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
-/* Navigation Bar */
+.donate-item h4 {
+    margin: 0;
+    color: #333;
+}
+
+.donate-item p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 14px;
+}
+
+.donate-item small {
+    color: #999;
+    font-size: 12px;
+}
+
+.donate-item .blood-type {
+    margin-left: auto;
+    background-color: #e74c3c;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .nav-bar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 10px 0;
-    background-color: #f9f9f9;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    margin-top: 20px;
+    background-color: white;
+    border-top: 1px solid #ddd;
 }
 
 .nav-item {
+    flex-grow: 1;
     text-align: center;
-    color: #333;
+    color: #e74c3c;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 16px;
 }
 
 .nav-item.active {
-    color: #FF1493;
-}
-
-/* Blood Group Selector */
-.blood-group-selector {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 400px;
-}
-
-.blood-group-selector button {
-    flex: 1 0 20%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    background-color: #f9f9f9;
-    color: #333;
-}
-
-.blood-group-selector button.selected {
-    background-color: #FF1493;
+    background-color: #e74c3c;
     color: white;
 }
 
-/* Slider Styling */
-.slider-container {
-    width: 100%;
-    margin-bottom: 20px;
-    max-width: 400px;
+.nav-item:hover {
+    background-color: #c0392b;
+    color: white;
+} 
+
+/* Back Arrow */
+.back-arrow {
+    display: inline-block;
+    margin: 20px;
+    color: #e74c3c;
+    font-size: 24px;
+    text-decoration: none;
 }
 
-.slider {
-    width: 100%;
-    height: 5px;
-    background: #ddd;
-    outline: none;
-    opacity: 0.7;
-    transition: opacity .2s;
+.back-arrow:hover {
+    color: #c0392b;
 }
 
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    background: #FF1493;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-/* Profile Header Section */
-.profile-header {
-    text-align: center;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 400px;
-}
-
-.profile-header img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
-
-/* Profile Stats */
-.profile-stats {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 400px;
-}
-
-.profile-stats div {
-    text-align: center;
-}
-
-/* Profile Menu */
-.profile-menu {
-    list-style-type: none;
-    padding: 0;
-    width: 100%;
-    max-width: 400px;
-}
-
-.profile-menu li {
-    padding: 15px 0;
-    border-bottom: 1px solid #ddd;
-    text-align: center;
-}
-
-/* Notification List */
-.notification-list {
-    list-style-type: none;
-    padding: 0;
-    width: 100%;
-    max-width: 400px;
-}
-
-.notification-item {
-    padding: 15px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-/* Splash Screen */
+/* Splash Screen Styling */
 .splash-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FF7F7F;
+    color: white;
+    text-align: center;
+}
+
+.splash-screen h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.splash-screen p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.splash-screen button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: white;
+    color: #e74c3c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.splash-screen button:hover {
+    background-color: #c0392b;
+    color: white;
+}
+
+/* Content Links Section */
+.content-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.content-link {
+    text-align: center;
+    margin: 15px;
+    background-color: #fafafa;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 220px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-link img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.content-link h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.content-link a {
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: 16px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.content-link a:hover {
+    background-color: #c0392b;
+}
+
+.content-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for Onboarding Screen */
+.onboarding-screen {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #FF1493;
-    color: white;
-    width: 100%;
     text-align: center;
+    background-color: #f8f9fa; /* Light background color */
+    padding: 20px;
 }
 
-/* Onboarding Screen */
-.onboarding-screen {
-    text-align: center;
-    padding: 20px;
-    width: 100%;
-    max-width: 400px;
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem; /* Font size for heading */
+    text-align: center; /* Center align heading */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 50%;
+    padding: 10px;
+    margin-left: 70px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd; /* Border for input fields */
+    border-radius: 4px; /* Rounded corners for input fields */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.error {
+    display: none;
+    color: #d9534f; /* Red color for error messages */
+    font-size: 0.875rem; /* Font size for error messages */
+    margin-bottom: 10px;
+}
+
+button {
+    width: 60%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #FF1493; /* Background color for button */
+    color: white; /* Text color for button */
+    font-size: 1rem; /* Font size for button text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+button:hover {
+    background-color: #e6007e; /* Darker color on hover */
 }
 
 .onboarding-screen img {
     max-width: 100%;
     height: auto;
     margin-bottom: 20px;
+}
+
+.onboarding-screen h2 {
+    font-size: 2rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.onboarding-screen p {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #666;
+}
+
+.onboarding-screen button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #FF1493; /* Button background color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.onboarding-screen button:hover {
+    background-color: #e6007e; /* Darker shade of the button color */
+}
+
+/* Styles for Profile Header */
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff; /* White background for profile header */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    text-align: center;
+}
+
+.profile-header img {
+    border-radius: 50%;
+    width: 100px; /* Set a fixed width for profile image */
+    height: 100px; /* Set a fixed height for profile image */
+    object-fit: cover; /* Ensure the image covers the area */
+    margin-bottom: 10px;
+}
+
+.profile-header h2 {
+    font-size: 1.5rem; /* Font size for profile name */
+    margin: 10px 0; /* Space above and below the name */
+}
+
+.profile-header p {
+    color: #666; /* Gray color for last donation date */
+    margin: 0;
+}
+
+#profile-avatar {
+    width: 120px; /* Set a fixed size for the avatar */
+    height: 120px; /* Set a fixed size for the avatar */
+    border-radius: 50%; /* Make the avatar circular */
+    object-fit: cover; /* Ensure the image covers the circular area */
+    margin-bottom: 10px; /* Space between avatar and name */
+    border: 2px solid #FF1493; /* Border color around the avatar */
+}
+
+#profile-name {
+    font-size: 1.5rem; /* Font size for the profile name */
+    color: #333; /* Dark color for the name text */
+    margin: 0; /* Remove default margin */
+}
+
+/* Styles for Profile Stats */
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff; /* White background for profile stats section */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+.profile-stats > div {
+    text-align: center;
+}
+
+.profile-stats h3 {
+    font-size: 2rem; /* Larger font size for stats values */
+    color: #FF1493; /* Color for stats values */
+    margin: 0; /* Remove default margin */
+}
+
+.profile-stats p {
+    font-size: 1rem; /* Font size for stats labels */
+    color: #333; /* Dark color for stats labels */
+    margin: 5px 0 0; /* Space above the label */
+}
+
+.profile-menu {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0;
+    margin: 20px;
+}
+
+.profile-menu li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd; /* Light border for each menu item */
+    cursor: pointer; /* Show a pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.profile-menu li:hover {
+    background-color: #f1f1f1; /* Light gray background on hover */
+}
+
+.profile-menu label {
+    margin-right: 10px; /* Space between label and checkbox */
+}
+
+.profile-menu input[type="checkbox"] {
+    cursor: pointer; /* Show a pointer cursor on checkbox */
+}
+
+/* Responsive Design for Profile Stats */
+@media (max-width: 768px) {
+    .profile-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-stats > div {
+        margin-bottom: 20px;
+    }
+
+    .profile-stats h3 {
+        font-size: 1rem;
+    }
+
+    .profile-stats p {
+        font-size: 1.5rem;
+    }
+}
+
+/* Responsive Design for Profile Header */
+@media (max-width: 768px) {
+    #profile-avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    #profile-name {
+        font-size: 1.2rem;
+    }
+}
+
+/* Responsive Design for Onboarding Screen */
+@media (max-width: 768px) {
+    .onboarding-screen h2 {
+        font-size: 1.5rem;
+    }
+
+    .onboarding-screen p {
+        font-size: 0.9rem;
+    }
+
+    .onboarding-screen button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
+
+
+/* Responsive Design for Content Links */
+@media (max-width: 768px) {
+    .content-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content-link {
+        width: 90%;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #donate-container {
+        padding: 10px;
+    }
+
+    .donate-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .donate-item .blood-type {
+        margin: 10px 0 0 0;
+    }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .chat-container {
+        height: 90vh;
+        padding: 10px;
+    }
+
+    .message {
+        font-size: 14px;
+    }
+
+    .chat-input button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .blood-group-selector {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .slider {
+        height: 8px;
+    }
+
+    .submit-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .blood-center,
+    .review {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .blood-center h2,
+    .review h3 {
+        font-size: 22px;
+    }
+
+    .blood-center-info span {
+        font-size: 16px;
+    }
+
+    .blood-center button,
+    .review button {
+        padding: 8px 12px;
+    }
 }

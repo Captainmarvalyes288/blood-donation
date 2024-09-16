@@ -4,154 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blood Donation App</title>
-    <link rel="stylesheet" href="styles.css" />
-    <style>
-      /* General styling */
-      body {
-        font-family: "Arial", sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #fff0f5;
-        text-align: center;
-        color: #333;
-      }
-
-      /* Splash screen styles */
-      .splash-screen {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #ffefff; /* Lighter background for better contrast */
-        transition: background-color 0.5s ease;
-      }
-
-      .splash-screen h1 {
-        font-size: 3.5em; /* Increased font size */
-        color: #ff1493;
-        margin-bottom: 10px; /* Added margin */
-      }
-
-      .splash-screen p {
-        font-size: 1.5em; /* Larger font for emphasis */
-        color: #555; /* Slightly darker color for better readability */
-        margin-bottom: 20px; /* Spacing between elements */
-      }
-
-      .splash-screen button {
-        padding: 15px 30px; /* Increased padding for better clickability */
-        font-size: 1.2em; /* Larger font size */
-        background-color: #ff1493;
-        color: white;
-        border: none;
-        border-radius: 8px; /* Slightly larger border radius */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow */
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
-      }
-
-      .splash-screen button:hover {
-        background-color: #e03b7d;
-        transform: translateY(-2px); /* Slight lift effect */
-      }
-
-      /* Navigation bar styles */
-      .nav-bar {
-        background-color: #333;
-        padding: 15px 0; /* Increased padding */
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Shadow for elevation effect */
-      }
-
-      .nav-bar ul {
-        list-style-type: none;
-        padding: 0;
-        display: flex;
-        justify-content: space-around;
-        margin: 0;
-      }
-
-      .nav-bar a {
-        color: white;
-        text-decoration: none;
-        font-size: 18px; /* Increased font size */
-        transition: color 0.3s ease; /* Smooth transition for hover */
-      }
-
-      .nav-bar a:hover {
-        color: #ff1493; /* Highlight on hover */
-      }
-
-      /* Content links section with horizontal block layout */
-      .content-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 20px;
-        margin-top: 50px;
-        gap: 20px; /* Added gap between items for better spacing */
-      }
-
-      .content-link {
-        background-color: white;
-        border-radius: 15px; /* Increased border radius */
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Stronger shadow for depth */
-        margin: 15px;
-        width: 220px; /* Increased width */
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .content-link:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* More dramatic shadow on hover */
-      }
-
-      .content-link img {
-        width: 100%;
-        border-top-left-radius: 15px; /* Increased border radius */
-        border-top-right-radius: 15px; /* Increased border radius */
-      }
-
-      .content-link h3 {
-        font-size: 20px; /* Increased font size */
-        color: #333;
-        padding: 10px;
-      }
-
-      .content-link a {
-        display: block;
-        padding: 10px;
-        text-decoration: none;
-        color: #ff1493;
-        font-weight: bold;
-        background-color: #f0f0f0; /* Background color for links */
-        border-radius: 5px; /* Rounded corners */
-        margin: 10px; /* Spacing around link */
-        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background */
-      }
-
-      .content-link a:hover {
-        background-color: #ff1493; /* Highlight background on hover */
-        color: white; /* Change text color on hover */
-      }
-
-      /* Responsive design for mobile */
-      @media (max-width: 768px) {
-        .content-link {
-          width: 45%; /* Two items per row */
-        }
-      }
-
-      @media (max-width: 480px) {
-        .content-link {
-          width: 90%; /* Full width on small screens */
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <!-- Splash Screen -->
@@ -203,7 +56,7 @@
         <h3>Chat</h3>
         <a href="chat.html">Open Chat</a>
       </div>
-      <div class="content-link">
+       <!-- <div class="content-link">
         <img
           src="https://via.placeholder.com/200x150.png?text=Inbox"
           alt="Inbox"
@@ -211,7 +64,7 @@
         <h3>Inbox</h3>
         <a href="inbox.html">Open Inbox</a>
       </div>
-      <div class="content-link">
+       <div class="content-link">
         <img
           src="https://via.placeholder.com/200x150.png?text=Profile"
           alt="Profile"
@@ -234,7 +87,7 @@
         />
         <h3>Profile Header</h3>
         <a href="profile-header.html">Open Profile Header</a>
-      </div>
+      </div> -->
     </section>
 
     <script src="index.js"></script>
