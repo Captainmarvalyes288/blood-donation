@@ -1,113 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notifications - Blood Donation App</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #FFF0F5;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            min-height: 100vh;
-        }
-        .notification-list {
-            list-style-type: none;
-            padding: 0;
-            width: 100%;
-            max-width: 400px;
-        }
-        .notification-item {
-            background-color: white;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h4 {
-            margin: 0;
-            color: #333;
-        }
-        p {
-            color: #666;
-            margin: 5px 0;
-        }
-        .back-arrow {
-            font-size: 24px;
-            color: #333;
-            text-decoration: none;
-            margin-bottom: 20px;
-            display: inline-block;
-            cursor: pointer;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #fff0f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        min-height: 100vh;
+      }
+      .notification-list {
+        list-style-type: none;
+        padding: 0;
+        width: 100%;
+        max-width: 400px;
+      }
+      .notification-item {
+        background-color: white;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h4 {
+        margin: 0;
+        color: #333;
+      }
+      p {
+        color: #666;
+        margin: 5px 0;
+      }
+      .back-arrow {
+        font-size: 24px;
+        color: #333;
+        text-decoration: none;
+        margin-bottom: 20px;
+        display: inline-block;
+        cursor: pointer;
+      }
+      .nav-bar {
+        display: flex;
+        justify-content: space-around;
+        background-color: #333;
+        padding: 10px;
+        width: 100%;
+        max-width: 400px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+      }
+      .nav-item {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 10px;
+      }
+      .nav-item.active {
+        background-color: #ff1493;
+        border-radius: 5px;
+      }
+      .donate-list {
+        list-style-type: none;
+        padding: 0;
+        width: 100%;
+        max-width: 400px;
+      }
+      .donate-item {
+        background-color: white;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+      }
+      .donate-item img {
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+      .donate-item h3 {
+        margin: 0;
+        color: #333;
+      }
+      .donate-item p {
+        color: #666;
+        margin: 5px 0;
+      }
+      .donate-item small {
+        color: #999;
+      }
+      .blood-type {
+        background-color: #ff1493;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin-left: auto;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <a href="index.html" class="back-arrow">&#8592; Back</a>
     <div id="notifications-container"></div>
 
     <script>
-        // Function to create the notifications content
-        function showNotifications() {
-            const app = document.getElementById('notifications-container');
-            app.innerHTML = `
-                <h2>Notifications</h2>
-                <ul class="notification-list">
-                    <li class="notification-item">
-                        <h3>Today</h3>
-                    </li>
-                    <li class="notification-item">
-                        <h4>Grateful for You!</h4>
-                        <p>Lorem ipsum is simply dummy text of the printing and typesetting...</p>
-                    </li>
-                    <li class="notification-item">
-                        <h4>Feel Healthier</h4>
-                        <p>Lorem ipsum is simply dummy text of the printing and typesetting...</p>
-                    </li>
-                    <li class="notification-item">
-                        <h4>Health Tips for Donors</h4>
-                        <p>Lorem ipsum is simply dummy text of the printing and typesetting...</p>
-                    </li>
-                    <li class="notification-item">
-                        <h3>Yesterday</h3>
-                    </li>
-                    <li class="notification-item">
-                        <h4>B+ Blood Needed in Your Area</h4>
-                        <p>Lorem ipsum is simply dummy text of the printing and typesetting...</p>
-                    </li>
-                    <li class="notification-item">
-                        <h4>You Have a Donate Request</h4>
-                        <p>Lorem ipsum is simply dummy text of the printing and typesetting...</p>
-                    </li>
-                    <li class="notification-item">
-                        <h4>Account Setup Successful!</h4>
-                        <p>Lorem ipsum is simply dummy text of the printing and typesetting...</p>
-                    </li>
-                </ul>
-                ${createNavBar('notifications')}
-            `;
-        }
+      // Function to create the notifications content
+      function showNotifications() {
+        const app = document.getElementById("notifications-container");
+        app.innerHTML = `
+          <h2>Notifications</h2>
+          <ul class="notification-list">
+              <li class="notification-item">
+                  <h3>Today</h3>
+              </li>
+              <li class="notification-item">
+                  <h4>Grateful for You!</h4>
+                  <p>Lorem ipsum is simply dummy text of the printing and typesetting...</p>
+              </li>
+              <li class="notification-item">
+                  <h4>B+ Blood Needed in Your Area</h4>
+                  <p>Lorem ipsum is simply dummy text of the printing and typesetting...</p>
+              </li>
+              <li class="notification-item">
+                  <h4>You Have a Donate Request</h4>
+                  <p>Lorem ipsum is simply dummy text of the printing and typesetting...</p>
+              </li>
+          </ul>
+          ${createNavBar("notifications")}
+        `;
+      }
 
-        // Function to create the navigation bar
-        function createNavBar(active) {
-            return `
-                <div class="nav-bar">
-                    <a href="index.html" class="nav-item ${active === 'home' ? 'active' : ''}">Home</a>
-                    <a href="donate-list.html" class="nav-item ${active === 'donate' ? 'active' : ''}">Donate</a>
-                    <a href="chat.html" class="nav-item ${active === 'chat' ? 'active' : ''}">Chat</a>
-                    <a href="profile.html" class="nav-item ${active === 'profile' ? 'active' : ''}">Profile</a>
-                    <a href="notifications.html" class="nav-item ${active === 'notifications' ? 'active' : ''}">Notifications</a>
-                </div>
-            `;
-        }
+      // Function to create the donation content
+      function showDonate() {
+        const app = document.getElementById("notifications-container");
+        app.innerHTML = `
+          <div class="container">
+              <h2>Donate</h2>
+              <div style="display: flex; margin-bottom: 20px;">
+                  <button onclick="showDonate()" style="flex-grow: 1; background-color: #FF1493;">All</button>
+                  <button onclick="showDonate()" style="flex-grow: 1; background-color: #f1f0f0; color: black;">Recent</button>
+                  <button onclick="showDonate()" style="flex-grow: 1; background-color: #f1f0f0; color: black;">Urgent</button>
+              </div>
+              <ul class="donate-list">
+                  <li class="donate-item">
+                      <img src="https://via.placeholder.com/40x40.png?text=OJ" alt="Oliver James">
+                      <div>
+                          <h3>Oliver James</h3>
+                          <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.</p>
+                          <small>7 Min Ago</small>
+                      </div>
+                      <span class="blood-type">B</span>
+                  </li>
+              </ul>
+              ${createNavBar("donate")}
+          </div>
+        `;
+      }
 
-        // Call the showNotifications function when the page loads
-        document.addEventListener('DOMContentLoaded', showNotifications);
+      // Function to create the navigation bar
+      function createNavBar(active) {
+        return `
+          <div class="nav-bar">
+              <a href="index.html" class="nav-item ${
+                active === "home" ? "active" : ""
+              }">Home</a>
+              <a href="javascript:void(0);" onclick="showDonate()" class="nav-item ${
+                active === "donate" ? "active" : ""
+              }">Donate</a>
+              <a href="chat.html" class="nav-item ${
+                active === "chat" ? "active" : ""
+              }">Chat</a>
+              <a href="profile.html" class="nav-item ${
+                active === "profile" ? "active" : ""
+              }">Profile</a>
+              <a href="javascript:void(0);" onclick="showNotifications()" class="nav-item ${
+                active === "notifications" ? "active" : ""
+              }">Notifications</a>
+          </div>
+        `;
+      }
+
+      // Call the showNotifications function when the page loads
+      document.addEventListener("DOMContentLoaded", showNotifications);
     </script>
-</body>
+  </body>
 </html>

@@ -1,90 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inbox - Blood Donation App</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #FFF0F5;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            flex-direction: column;
-            text-align: center;
-        }
-        .inbox-list {
-            list-style-type: none;
-            padding: 0;
-            width: 100%;
-            max-width: 400px;
-        }
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #fff0f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      /* Back arrow styling */
+      .back-arrow {
+        font-size: 24px;
+        color: #ff1493; /* Changed color for better visibility */
+        text-decoration: none;
+        margin-bottom: 20px;
+        display: inline-block;
+        cursor: pointer;
+        transition: color 0.3s ease; /* Smooth transition on hover */
+      }
+
+      .back-arrow:hover {
+        color: #e03b7d; /* Slightly darker shade on hover */
+      }
+
+      /* Search container styling */
+      .search-container {
+        display: flex;
+        margin-bottom: 20px;
+      }
+
+      .search-container input {
+        flex-grow: 1;
+        margin-right: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        transition: border 0.3s ease; /* Smooth transition on focus */
+      }
+
+      .search-container input:focus {
+        border-color: #ff1493; /* Highlight border on focus */
+        outline: none; /* Remove default outline */
+      }
+
+      .search-container button {
+        padding: 10px 20px;
+        background-color: #ff1493;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease; /* Smooth transition on hover */
+      }
+
+      .search-container button:hover {
+        background-color: #e03b7d; /* Darker shade on hover */
+      }
+
+      /* Inbox list styling */
+      .inbox-list {
+        list-style-type: none;
+        padding: 0;
+        width: 100%;
+        max-width: 400px;
+      }
+
+      /* Inbox item styling */
+      .inbox-item {
+        background-color: white;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Stronger shadow for depth */
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: box-shadow 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+      }
+
+      .inbox-item:hover {
+        transform: translateY(-2px); /* Lift on hover */
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+      }
+
+      .inbox-item img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px; /* Increased margin for better spacing */
+      }
+
+      h3 {
+        margin: 0;
+        color: #333; /* Keeping a dark color for text */
+        font-size: 18px; /* Slightly larger font for better readability */
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 480px) {
         .inbox-item {
-            background-color: white;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            cursor: pointer;
+          padding: 10px; /* Reduce padding for smaller screens */
         }
-        .inbox-item img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-        h3 {
-            margin: 0;
-            color: #333;
-        }
-        .back-arrow {
-            font-size: 24px;
-            color: #333;
-            text-decoration: none;
-            margin-bottom: 20px;
-            display: inline-block;
-            cursor: pointer;
-        }
+
         .search-container {
-            display: flex;
-            margin-bottom: 20px;
+          flex-direction: column; /* Stack search elements */
+          align-items: center; /* Center align */
         }
+
         .search-container input {
-            flex-grow: 1;
-            margin-right: 10px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+          margin-bottom: 10px; /* Space between input and button */
+          width: 100%; /* Full width on small screens */
         }
+
         .search-container button {
-            padding: 10px 20px;
-            background-color: #FF1493;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+          width: 100%; /* Full width for button on small screens */
         }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <a href="index.html" class="back-arrow">&#8592; Back</a>
     <div class="search-container">
-        <input type="text" placeholder="Search">
-        <button>Search</button>
+      <input type="text" placeholder="Search" />
+      <button>Search</button>
     </div>
     <ul id="inbox-list" class="inbox-list"></ul>
 
     <script>
-        function showInbox() {
-            const inboxList = document.getElementById('inbox-list');
+      function showInbox() {
+        const inboxList = document.getElementById("inbox-list");
 
-            inboxList.innerHTML = `
+        inboxList.innerHTML = `
                 <li class="inbox-item" onclick="showChat()">
                     <img src="https://via.placeholder.com/40x40.png?text=ML" alt="Michel Lucas">
                     <div>
@@ -142,10 +198,10 @@
                     </div>
                 </li>
             `;
-        }
+      }
 
-        // Call showInbox to initialize the inbox when the page loads
-        document.addEventListener('DOMContentLoaded', showInbox);
+      // Call showInbox to initialize the inbox when the page loads
+      document.addEventListener("DOMContentLoaded", showInbox);
     </script>
-</body>
+  </body>
 </html>
